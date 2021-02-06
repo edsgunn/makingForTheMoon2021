@@ -1,4 +1,4 @@
-function r = getSpoolRadius(theta)
+function r = getSpoolRadius()
     
     r = 0.01;
 
