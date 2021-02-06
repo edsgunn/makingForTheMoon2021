@@ -14,14 +14,14 @@ function simulateEnvironment()
     
     for i = 2:length(time)
         omega = v(i-1) / getSpoolRadius();
-        current(i-1) = -0.01/(1-0.00001 * omega^3);
+        current(i-1) = 1;
         theta = x(i-1) /(2*pi* getSpoolRadius());
         
         if (x(i-1) < -0.8)
             break;
         end
 
-        a(i-1) = getAcceleration_ForceB(omega, theta, current(i-1),k);
+        a(i-1) = getAcceleration_ForceB(theta, current(i-1),k);
         v(i) = getVelocity_NextInterval(v(i-1), dt, a(i-1));
         x(i) = getDistance_NextInterval(x(i-1), dt, v(i));
     end

@@ -3,7 +3,7 @@
 % magnet), as well as being proportional to the rotational speed.
 % k is some sort of motor constant
 
-function T = getMotorTorque(omega, current, k)
+function T = getMotorTorque(current, k)
         
     T = current * k;    %As a rough approximation, not including theta
 
