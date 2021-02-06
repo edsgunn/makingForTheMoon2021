@@ -5,6 +5,7 @@ function simulateEnvironment()
     maxTime = 3;        %s
     dt = 0.001;         %s
     time = 0:dt:maxTime;
+    current = zeros(length(time), 1);
     x = zeros(length(time),1) - 0.8;
     v = zeros(length(time),1);
     a = zeros(length(time),1);
@@ -13,31 +14,35 @@ function simulateEnvironment()
     
     for i = 2:length(time)
         omega = v(i-1) / getSpoolRadius();
-        current = -0.01/(1-0.001 * omega^2);  
+        current(i-1) = -0.01/(1-0.00001 * omega^3);
         theta = x(i-1) /(2*pi* getSpoolRadius());
         
         if (x(i-1) < -0.8)
             break;
         end
 
-        a(i) = getAcceleration_ForceB(omega, theta, current,k);
-        v(i) = getVelocity_NextInterval(v(i-1), dt, a(i));
+        a(i-1) = getAcceleration_ForceB(omega, theta, current(i-1),k);
+        v(i) = getVelocity_NextInterval(v(i-1), dt, a(i-1));
         x(i) = getDistance_NextInterval(x(i-1), dt, v(i));
     end
     
     hold on;
-    subplot(3,1,1);
+    subplot(4,1,1);
     plot(time, a);
     xlabel('time');
     ylabel('a');
-    subplot(3,1,2);
+    subplot(4,1,2);
     plot(time, v);
     xlabel('time');
     ylabel('v');
-    subplot(3,1,3);
+    subplot(4,1,3);
     plot(time, x);
     xlabel('time');
     ylabel('x');
+    subplot(4,1,4);
+    plot(time, current);
+    xlabel('time');
+    ylabel('I');
 
 end
 
@@ -87,5 +92,9 @@ function simulateEnvironment_It2()
     xlabel('k');
     ylabel('time');
     zlabel('v');
+    subplot(4,1,4);
+    plot(time, current);
+    xlabel('time');
+    ylabel('I');
 
 end

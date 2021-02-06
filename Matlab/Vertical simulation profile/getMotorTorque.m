@@ -5,7 +5,7 @@
 
 function T = getMotorTorque(omega, current, k)
         
-    T = current * k * omega;    %As a rough approximation, not including theta
+    T = current * k;    %As a rough approximation, not including theta
 
 end
 
