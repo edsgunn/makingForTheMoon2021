@@ -2,10 +2,10 @@
 % so some trigonometric function of theta (as theta passes each permanent
 % magnet), as well as being proportional to the rotational speed.
 
-function T = getMotorTorque(omega, current)
+function T = getMotorTorque(omega, theta, current)
     
     k = 1;      %Some motor constant
-    T = current * k * omega;    %As a rough approximation, not including theta
+    T = current * k * omega;    %As a rough approximation, not 
 
 end
 

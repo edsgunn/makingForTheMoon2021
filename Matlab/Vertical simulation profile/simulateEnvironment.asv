@@ -1,0 +1,25 @@
+function simulateEnvironment()
+
+    maxTime = 50;
+    dt = 0.1;       %s
+    time = 0:dt:maxTime;
+    x = zeros(length(time),1);
+    v = zeros(length(time),1);
+    a = zeros(length(time),1);
+    
+    
+    
+    for i = 2:length(time)
+        omega = v(i) / getSpoolRadius();
+        current = controller(omega);  
+        theta = x(i) * getSpoolRadius
+
+        a = getAcceleration_ForceB(
+        
+        
+    end
+    
+
+
+
+end
