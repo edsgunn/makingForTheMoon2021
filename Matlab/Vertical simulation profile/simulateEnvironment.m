@@ -27,22 +27,22 @@ function simulateEnvironment()
     end
     
     hold on;
-    subplot(4,1,1);
+    subplot(3,1,1);
     plot(time, a);
     xlabel('time');
     ylabel('a');
-    subplot(4,1,2);
+    subplot(3,1,2);
     plot(time, v);
     xlabel('time');
     ylabel('v');
-    subplot(4,1,3);
+    subplot(3,1,3);
     plot(time, x);
     xlabel('time');
     ylabel('x');
-    subplot(4,1,4);
-    plot(time, current);
-    xlabel('time');
-    ylabel('I');
+    %subplot(4,1,4);
+    %plot(time, current);
+    %xlabel('time');
+    %ylabel('I');
 
 end
 
