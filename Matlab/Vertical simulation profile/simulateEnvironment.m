@@ -11,7 +11,7 @@ function simulateEnvironment()
     
     for i = 2:length(time)
         omega = v(i-1) / getSpoolRadius();
-        current = controller(omega);  
+        current = -0.01/(1-0.001 * omega^2);  
         theta = x(i-1) /(2*pi* getSpoolRadius());
         
         if (x(i-1) < -0.8)
@@ -23,7 +23,6 @@ function simulateEnvironment()
         x(i) = getDistance_NextInterval(x(i-1), dt, v(i));
     end
     
-
     hold on;
     subplot(3,1,1);
     plot(time, a);

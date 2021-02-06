@@ -1,5 +1,5 @@
 function r = getSpoolRadius(theta)
     
-    r = 1;
+    r = 0.01;
 
 end

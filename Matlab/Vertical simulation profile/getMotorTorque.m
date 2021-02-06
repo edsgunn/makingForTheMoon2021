@@ -4,7 +4,7 @@
 
 function T = getMotorTorque(omega, current)
     
-    k = 1;      %Some motor constant
+    k = 0.01;      %Some motor constant
     T = current * k * omega;    %As a rough approximation, not including theta
 
 end
